@@ -1,0 +1,5 @@
+# orchestrator (run_prism_batch.py)
+google-cloud-bigquery
+google-cloud-storage
+google-api-python-client
+google-auth

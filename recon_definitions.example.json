@@ -1,0 +1,54 @@
+{
+  "recons": [
+    {
+      "recon_id": "EXAMPLE_A_vs_B_daily",
+      "enabled": true,
+      "grain": "DAY",
+      "settle_hours": 12,
+      "lookback_days": 3,
+      "required_runs": 2,
+      "gate_on_pending_files": true,
+      "pending_grace_minutes": 120,
+      "severity": { "high_pct": 5.0, "medium_pct": 1.0 },
+
+      "side_a": {
+        "label": "SOURCE_A",
+        "table": "vf-uk-raid-pre-prod.VPDB_DAT.VP_T_EVENTS_DETAIL_PGW",
+        "source_types": ["PGW"],
+        "window_expr": "TIMESTAMP(EVT_DATE)",
+        "where": "TRUE"
+      },
+      "side_b": {
+        "label": "SOURCE_B",
+        "table": "<SIDE_B_DETAIL_TABLE>",
+        "source_types": ["<SIDE_B_SOURCE_TYPE>"],
+        "window_expr": "<SIDE_B_TIMESTAMP_EXPRESSION>",
+        "where": "TRUE"
+      },
+
+      "dimensions": [
+        { "name": "NE_ID", "a": "NE_ID", "b": "<SIDE_B_NE_COLUMN>" },
+        { "name": "APN",   "a": "APN",   "b": "<SIDE_B_APN_COLUMN>" }
+      ],
+
+      "measures": [
+        { "name": "records",     "a": "COUNT(*)",            "b": "COUNT(*)",              "abs_tol": 0, "pct_tol": 0 },
+        { "name": "data_volume", "a": "SUM(MES_DATA_VOLUME)", "b": "SUM(<SIDE_B_VOLUME>)", "abs_tol": 0, "pct_tol": 0.1 }
+      ],
+
+      "detail": {
+        "key": [
+          { "name": "session_id",   "a": "SESSION_ID",   "b": "<SIDE_B_SESSION_COLUMN>" },
+          { "name": "rating_group", "a": "RATING_GROUP", "b": "<SIDE_B_RATING_GROUP_COLUMN>" }
+        ],
+        "compare": [
+          { "name": "data_volume", "a": "SUM(MES_DATA_VOLUME)", "b": "SUM(<SIDE_B_VOLUME>)", "tol": 0 }
+        ],
+        "file_col_a": "file_id",
+        "file_col_b": "file_id",
+        "max_bytes": 214748364800,
+        "sample_rows": 100
+      }
+    }
+  ]
+}

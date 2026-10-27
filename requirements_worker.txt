@@ -1,0 +1,2 @@
+# installed in the Dataflow Flex Template image (LookupsManager reads lookups from BigQuery)
+google-cloud-bigquery

@@ -1,0 +1,6 @@
+# gcloud builds submit --region=europe-west2 --config=cloudbuild.orchestrator.yaml \
+#   --substitutions=_IMAGE=europe-west2-docker.pkg.dev/vf-uk-raid-pre-prod/<REPO>/prism-orchestrator:1.0 .
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "Dockerfile.orchestrator", "-t", "${_IMAGE}", "."]
+images: ["${_IMAGE}"]

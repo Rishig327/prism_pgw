@@ -1,0 +1,13 @@
+{
+  "name": "PRISM batch ETL",
+  "description": "Decode + transform a manifest of files into the staging table with file_id/attempt_no tags",
+  "parameters": [
+    {"name": "manifest", "label": "Manifest (gs://...jsonl)", "helpText": "One JSON line per file"},
+    {"name": "run_id", "label": "Run id", "helpText": "Orchestrator run id"},
+    {"name": "source_type", "label": "Source type", "helpText": "PGW"},
+    {"name": "staging_table", "label": "Staging table", "helpText": "project:dataset.table"},
+    {"name": "reject_table", "label": "Reject table", "helpText": "project:dataset.table"},
+    {"name": "read_counts_table", "label": "Read counts table", "helpText": "project:dataset.table"},
+    {"name": "kms_key_name", "label": "KMS key", "helpText": "CMEK key for BigQuery load jobs", "isOptional": true}
+  ]
+}

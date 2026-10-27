@@ -1,0 +1,494 @@
+<?xml version="1.0" ?>
+<Root>
+  <Module name="SGSN-15B-CDR">
+    <Type name="BCDDirectoryNumber" type="OCTET STRING"/>
+    <Type name="CallDuration" type="INTEGER"/>
+    <Type name="CallEventRecord" type="CHOICE" schema="Start">
+      <Member name="pGWRecord" type="PGWRecord" tag="C 79"/>
+    </Type>
+    <Type name="PGWRecord" type="SET">
+      <Member name="recordType" type="RecordType" tag="0"/>
+      <Member name="servedIMSI" type="IMSI"  custom_type='tbcd_string' optional="True" tag="3"/>
+      <Member name="p-GWAddress" type="GSNAddress" tag="4"/>
+      <Member name="chargingID" type="ChargingID" tag="5"/>
+      <Member name="servingNodeAddress" type="SEQUENCE OF" element="GSNAddress" tag="6"/>
+      <Member name="accessPointNameNI" type="AccessPointNameNI" optional="True" tag="7"/>
+      <Member name="pdpPDNType" type="PDPType" optional="True" tag="8"/>
+      <Member name="servedPDPPDNAddress" type="PDPAddress" optional="True" tag="9"/>
+      <Member name="dynamicAddressFlag" type="DynamicAddressFlag" optional="True" tag="11"/>
+      <Member name="listOfTrafficVolumes" type="SEQUENCE OF" element="ChangeOfCharCondition" optional="True" tag="12"/>
+      <Member name="recordOpeningTime" type="TimeStamp" tag="13"/>
+      <Member name="duration" type="CallDuration" tag="14"/>
+      <Member name="causeForRecClosing" type="CauseForRecClosing" tag="15"/>
+      <Member name="diagnostics" type="Diagnostics" optional="True" tag="16"/>
+      <Member name="recordSequenceNumber" type="INTEGER" optional="True" tag="17"/>
+      <Member name="nodeID" type="NodeID" optional="True" tag="18"/>
+      <Member name="recordExtensions" type="ManagementExtensions" optional="True" tag="19"/>
+      <Member name="localSequenceNumber" type="LocalSequenceNumber" optional="True" tag="20"/>
+      <Member name="apnSelectionMode" type="APNSelectionMode" optional="True" tag="21"/>
+      <Member name="servedMSISDN" type="MSISDN"  custom_type='tbcd_string' optional="True" tag="22"/>
+      <Member name="chargingCharacteristics" type="ChargingCharacteristics" tag="23"/>
+      <Member name="chChSelectionMode" type="ChChSelectionMode" optional="True" tag="24"/>
+      <Member name="iMSsignalingContext" type="NULL" optional="True" tag="25"/>
+      <Member name="servingNodePLMNIdentifier" type="PLMN-Id" optional="True" tag="27"/>
+      <Member name="pSFurnishChargingInformation" type="PSFurnishChargingInformation" optional="True" tag="28"/>
+      <Member name="servedIMEI" type="IMEI" optional="True" tag="29"/>
+      <Member name="rATType" type="RATType" optional="True" tag="30"/>
+      <Member name="mSTimeZone" type="MSTimeZone" optional="True" tag="31"/>
+      <Member name="userLocationInformation" type="OCTET STRING" optional="True" tag="32"/>
+      <Member name="cAMELChargingInformation" type="OCTET STRING" optional="True" tag="33"/>
+      <Member name="listOfServiceData" type="SEQUENCE OF" element="ChangeOfServiceCondition" optional="True" tag="34"/>
+      <Member name="servingNodeType" type="SEQUENCE OF" element="ServingNodeType" tag="35"/>
+      <Member name="servedMNNAI" type="SubscriptionID" optional="True" tag="36"/>
+      <Member name="p-GWPLMNIdentifier" type="PLMN-Id" optional="True" tag="37"/>
+      <Member name="startTime" type="TimeStamp" optional="True" tag="38"/>
+      <Member name="stopTime" type="TimeStamp" optional="True" tag="39"/>
+      <Member name="served3gpp2MEID" type="OCTET STRING" optional="True" tag="40"/>
+      <Member name="pDNConnectionChargingID" type="ChargingID" optional="True" tag="41"/>
+      <Member name="iMSIunauthenticatedFlag" type="NULL" optional="True" tag="42"/>
+      <Member name="userCSGInformation" type="UserCSGInformation" optional="True" tag="43"/>
+      <Member name="threeGPP2UserLocationInformation" type="OCTET STRING" optional="True" tag="44"/>
+      <Member name="servedPDPPDNAddressExt" type="PDPAddress" optional="True" tag="45"/>
+      <Member name="lowPriorityIndicator" type="NULL" optional="True" tag="46"/>
+      <Member name="dynamicAddressFlagExt" type="DynamicAddressFlag" optional="True" tag="47"/>
+      <Member name="servingNodeiPv6Address" type="SEQUENCE OF" element="GSNAddress" optional="True" tag="49"/>
+      <Member name="p-GWiPv6AddressUsed" type="GSNAddress" optional="True" tag="50"/>
+      <Member name="tWANUserLocationInformation" type="TWANUserLocationInfo" optional="True" tag="51"/>
+      <Member name="retransmission" type="NULL" optional="True" tag="52"/>
+      <Member name="userLocationInfoTime" type="TimeStamp" optional="True" tag="53"/>
+      <Member name="cNOperatorSelectionEnt" type="CNOperatorSelectionEntity" optional="True" tag="54"/>
+      <Member name="ePCQoSInformation" type="EPCQoSInformation" optional="True" tag="55"/>
+      <Member name="presenceReportingAreaInfo" type="PresenceReportingAreaInfo" optional="True" tag="56"/>
+      <Member name="lastUserLocationInformation" type="OCTET STRING" optional="True" tag="57"/>
+      <Member name="lastMSTimeZone" type="MSTimeZone" optional="True" tag="58"/>
+      <Member name="enhancedDiagnostics" type="EnhancedDiagnostics" optional="True" tag="59"/>
+      <Member name="nBIFOMMode" type="NBIFOMMode" optional="True" tag="60"/>
+      <Member name="nBIFOMSupport" type="NBIFOMSupport" optional="True" tag="61"/>
+      <Member name="uWANUserLocationInformation" type="UWANUserLocationInfo" optional="True" tag="62"/>
+      <Member name="sGiPtPTunnellingMethod" type="SGiPtPTunnellingMethod" optional="True" tag="64"/>
+      <Member name="uNIPDUCPOnlyFlag" type="UNIPDUCPOnlyFlag" optional="True" tag="65"/>
+      <Member name="servingPLMNRateControl" type="ServingPLMNRateControl" optional="True" tag="66"/>
+      <Member name="aPNRateControl" type="APNRateControl" optional="True" tag="67"/>
+      <Member name="pDPPDNTypeExtension" type="PDPPDNTypeExtension" optional="True" tag="68"/>
+      <Member name="mOExceptionDataCounter" type="MOExceptionDataCounter" optional="True" tag="69"/>
+      <Member name="chargingPerIPCANSessionIndicator" type="ChargingPerIPCANSessionIndicator" optional="True" tag="70"/>
+      <Member name="threeGPPPSDataOffStatus" type="ThreeGPPPSDataOffStatus" optional="True" tag="71"/>
+      <Member name="sCSASAddress" type="SCSASAddress" optional="True" tag="72"/>
+      <Member name="listOfRANSecondaryRATUsageReports" type="SEQUENCE OF" element="RANSecondaryRATUsageReport" optional="True" tag="73"/>
+    </Type>
+
+    <Type name="CallEventRecordType" type="INTEGER" >
+		<NamedNumber name="pGWRecord" value="79"/>    
+	</Type>
+    <Type name="CallingNumber" type="BCDDirectoryNumber"/>
+    <Type name="CellId" type="OCTET STRING"/>
+    <Type name="Diagnostics" type="CHOICE">
+      <Member name="gsm0408Cause" type="INTEGER" tag="C 0"/>
+      <Member name="gsm0902MapErrorValue" type="INTEGER" tag="C 1"/>
+    </Type>
+    <Type name="LevelOfCAMELService" type="BIT STRING"/>
+    <Type name="LocationAreaCode" type="OCTET STRING"/>
+    <Type name="ManagementExtensions" type="SET OF" element="ManagementExtension"/>
+    <Type name="MessageReference" type="OCTET STRING"/>
+    <Type name="MSISDN" type="ISDN-AddressString"/>
+    <Type name="RecordingEntity" type="AddressString"/>
+    <Type name="SMSResult" type="Diagnostics"/>
+    <Type name="SmsTpDestinationNumber" type="OCTET STRING"/>
+    <Type name="TimeStamp" type="OCTET STRING"/>
+    <Type name="AddressString" type="OCTET STRING"/>
+    <Type name="CallReferenceNumber" type="OCTET STRING"/>
+    <Type name="DefaultGPRS-Handling" type="ENUMERATED">
+      <entry name="continueTransaction" value="0"/>
+      <entry name="releaseTransaction" value="1"/>
+    </Type>
+    <Type name="DefaultSMS-Handling" type="ENUMERATED">
+      <entry name="continueTransaction" value="0"/>
+      <entry name="releaseTransaction" value="1"/>
+    </Type>
+    <Type name="IMSI" type="TBCD-STRING"/>
+    <Type name="IMEI" type="TBCD-STRING"/>
+    <Type name="ISDN-AddressString" type="AddressString"/>
+    <Type name="ServiceKey" type="INTEGER"/>
+    <Type name="TBCD-STRING" type="OCTET STRING"/>
+    
+    <Type name="AccessPointNameNI" type="IA5String"/>
+    <Type name="AccessPointNameOI" type="IA5String"/>
+    <Type name="APNSelectionMode" type="ENUMERATED">
+      <entry name="mSorNetworkProvidedSubscriptionVerified" value="0"/>
+      <entry name="mSProvidedSubscriptionNotVerified" value="1"/>
+      <entry name="networkProvidedSubscriptionNotVerified" value="2"/>
+    </Type>
+    <Type name="CAMELAccessPointNameNI" type="AccessPointNameNI"/>
+    <Type name="CAMELAccessPointNameOI" type="AccessPointNameOI"/>
+    <Type name="CAMELInformationPDP" type="SET">
+      <Member name="sCFAddress" type="SCFAddress" optional="True" tag="C 1"/>
+      <Member name="serviceKey" type="ServiceKey" optional="True" tag="C 2"/>
+      <Member name="defaultTransactionHandling" type="DefaultGPRS-Handling" optional="True" tag="C 3"/>
+      <Member name="cAMELAccessPointNameNI" type="CAMELAccessPointNameNI" optional="True" tag="C 4"/>
+      <Member name="cAMELAccessPointNameOI" type="CAMELAccessPointNameOI" optional="True" tag="C 5"/>
+      <Member name="numberOfDPEncountered" type="NumberOfDPEncountered" optional="True" tag="C 6"/>
+      <Member name="levelOfCAMELService" type="LevelOfCAMELService" optional="True" tag="C 7"/>
+      <Member name="freeFormatData" type="FreeFormatData" optional="True" tag="C 8"/>
+      <Member name="fFDAppendIndicator" type="FFDAppendIndicator" optional="True" tag="C 9"/>
+    </Type>
+    <Type name="CAMELInformationSMS" type="SET">
+      <Member name="sCFAddress" type="SCFAddress" optional="True" tag="C 1"/>
+      <Member name="serviceKey" type="ServiceKey" optional="True" tag="C 2"/>
+      <Member name="defaultSMSHandling" type="DefaultSMS-Handling" optional="True" tag="C 3"/>
+      <Member name="cAMELCallingPartyNumber" type="CallingNumber" optional="True" tag="C 4"/>
+      <Member name="cAMELDestinationSubscriberNumber" type="SmsTpDestinationNumber" optional="True" tag="C 5"/>
+      <Member name="cAMELSMSCAddress" type="AddressString" optional="True" tag="C 6"/>
+      <Member name="freeFormatData" type="FreeFormatData" optional="True" tag="C 7"/>
+      <Member name="smsReferenceNumber" type="CallReferenceNumber" optional="True" tag="C 8"/>
+    </Type>
+    <Type name="CauseForRecClosing" type="INTEGER">
+      <NamedNumber name="normalRelease" value="0"/>
+      <NamedNumber name="abnormalRelease" value="4"/>
+      <NamedNumber name="cAMELInitCallRelease" value="5"/>
+      <NamedNumber name="volumeLimit" value="16"/>
+      <NamedNumber name="timeLimit" value="17"/>
+      <NamedNumber name="sGSNChange" value="18"/>
+      <NamedNumber name="maxChangeCond" value="19"/>
+      <NamedNumber name="managementIntervention" value="20"/>
+      <NamedNumber name="mSTimeZoneChange" value="23"/>
+      <NamedNumber name="pLMNChange" value="101"/>
+      <NamedNumber name="hZBoundaryCrossing" value="107"/>
+    </Type>
+    <Type name="ChangeCondition" type="ENUMERATED">
+      <entry name="qoSChange" value="0"/>
+      <entry name="tariffTime" value="1"/>
+      <entry name="recordClosure" value="2"/>
+      <entry name="rAIChange" value="7"/>
+    </Type>
+    <Type name="ChangeOfCharCondition" type="SEQUENCE">
+      <Member name="qosRequested" type="QoSInformation" optional="True" tag="C 1"/>
+      <Member name="qosNegotiated" type="QoSInformation" optional="True" tag="C 2"/>
+      <Member name="dataVolumeGPRSUplink" type="DataVolumeGPRS" tag="C 3"/>
+      <Member name="dataVolumeGPRSDownlink" type="DataVolumeGPRS" tag="C 4"/>
+      <Member name="changeCondition" type="ChangeCondition" tag="C 5"/>
+      <Member name="changeTime" type="TimeStamp" tag="C 6"/>
+      <Member name="userLocationInformation" type="OCTET STRING" optional="True" tag="C 8"/>
+    </Type>
+    <Type name="ChargingCharacteristics" type="OCTET STRING"/>
+    <Type name="ChargingID" type="INTEGER"/>
+    <Type name="ChChSelectionMode" type="ENUMERATED">
+      <entry name="subscriptionSpecific" value="1"/>
+      <entry name="aPNSpecific" value="2"/>
+      <entry name="homeDefault" value="3"/>
+      <entry name="roamingDefault" value="4"/>
+    </Type>
+    <Type name="DataVolumeGPRS" type="INTEGER"/>
+    <Type name="DynamicAddressFlag" type="BOOLEAN"/>
+    <Type name="ETSIAddress" type="AddressString"/>
+    <Type name="ExtendedDiagnostics" type="CHOICE">
+      <Member name="ts48018BssgpCause" type="INTEGER" tag="C 0"/>
+      <Member name="ts25413RanapCause" type="INTEGER" tag="C 1"/>
+    </Type>
+    <Type name="ExtendedDiagnosticsBssgpRanap" type="SEQUENCE">
+      <Member name="tsBssgpRanapCause" type="INTEGER" tag="C 0"/>
+      <Member name="tsBssgpRanaPMessageType" type="INTEGER" tag="C 1"/>
+      <Member name="tsBssgpRanapMessageSource" type="INTEGER" tag="C 2"/>
+      <Member name="tsBssgpRanapCauseTimeStamp" type="TimeStamp" tag="C 3"/>
+    </Type>
+    <Type name="FFDAppendIndicator" type="BOOLEAN"/>
+    <Type name="FreeFormatData" type="OCTET STRING"/>
+    <Type name="GprsSCdrExtensions" type="SET">
+      <Member name="extendedDiagnostics" type="ExtendedDiagnostics" optional="True" tag="C 0"/>
+      <Member name="extendedDiagnosticsBssgp" type="SEQUENCE OF" element="ExtendedDiagnosticsBssgpRanap" optional="True" tag="C 1"/>
+      <Member name="extendedDiagnosticsRanap" type="SEQUENCE OF" element="ExtendedDiagnosticsBssgpRanap" optional="True" tag="C 2"/>
+    </Type>
+    <Type name="GSNAddress" type="IPAddress"/>
+    <Type name="IPAddress" type="CHOICE">
+      <Member name="iPBinaryAddress" type="IPBinaryAddress"/>
+      <Member name="iPTextRepresentedAddress" type="IPTextRepresentedAddress"/>
+    </Type>
+    <Type name="IPBinaryAddress" type="CHOICE">
+      <Member name="iPBinV4Address" type="OCTET STRING" custom_type="ip" tag="C 0"/>
+      <Member name="iPBinV6Address" type="OCTET STRING" tag="C 1"/>
+    </Type>
+    <Type name="IPTextRepresentedAddress" type="CHOICE">
+      <Member name="iPTextV4Address" type="IA5String" tag="C 2"/>
+      <Member name="iPTextV6Address" type="IA5String" tag="C 3"/>
+    </Type>
+    <Type name="LocalSequenceNumber" type="INTEGER"/>
+    <Type name="MSNetworkCapability" type="OCTET STRING"/>
+    <Type name="MSTimeZone" type="OCTET STRING"/>
+    <Type name="NetworkInitiatedPDPContext" type="BOOLEAN"/>
+    <Type name="NodeID" type="IA5String"/>
+    <Type name="NumberOfDPEncountered" type="INTEGER"/>
+    <Type name="PDPAddress" type="CHOICE">
+      <Member name="iPAddress" type="IPAddress" tag="C 0"/>
+      <Member name="eTSIAddress" type="ETSIAddress" tag="C 1"/>
+    </Type>
+    <Type name="PDPType" type="OCTET STRING"/>
+    <Type name="PLMN-Id" type="OCTET STRING"/>
+    <Type name="QoSInformation" type="OCTET STRING"/>
+    <Type name="RATType" type="INTEGER"/>
+    <Type name="RoutingAreaCode" type="OCTET STRING"/>
+    <Type name="SCFAddress" type="AddressString"/>
+    <Type name="SGSNChange" type="BOOLEAN"/>
+    <Type name="AccessAvailabilityChangeReason" type="INTEGER"/>
+    <Type name="AccessLineIdentifier" type="SEQUENCE">
+      <Member name="physicalAccessID" type="UTF8String" optional="True" tag="0"/>
+      <Member name="logicalAccessID" type="OCTET STRING" optional="True" tag="1"/>
+    </Type>
+    <Type name="ADCRuleBaseName" type="IA5String"/>
+    <Type name="AdditionalExceptionReports" type="ENUMERATED">
+      <entry name="notAllowed" value="0"/>
+      <entry name="allowed" value="1"/>
+    </Type>
+    <Type name="AFChargingIdentifier" type="OCTET STRING"/>
+    <Type name="AFRecordInformation" type="SEQUENCE">
+      <Member name="aFChargingIdentifier" type="AFChargingIdentifier" tag="1"/>
+      <Member name="flows" type="Flows" optional="True" tag="2"/>
+    </Type>
+    <Type name="APNRateControl" type="SEQUENCE">
+      <Member name="aPNRateControlUplink" type="APNRateControlParameters" optional="True" tag="0"/>
+      <Member name="aPNRateControlDownlink" type="APNRateControlParameters" optional="True" tag="1"/>
+    </Type>
+    <Type name="APNRateControlParameters" type="SEQUENCE">
+      <Member name="additionalExceptionReports" type="AdditionalExceptionReports" optional="True" tag="0"/>
+      <Member name="rateControlTimeUnit" type="RateControlTimeUnit" optional="True" tag="1"/>
+      <Member name="rateControlMaxRate" type="INTEGER" optional="True" tag="2"/>
+      <Member name="rateControlMaxMessageSize" type="DataVolumeGPRS" optional="True" tag="3"/>
+    </Type>
+    <Type name="CAMELInformationMM" type="SET">
+      <Member name="sCFAddress" type="SCFAddress" optional="True" tag="1"/>
+      <Member name="serviceKey" type="ServiceKey" optional="True" tag="2"/>
+      <Member name="defaultTransactionHandling" type="DefaultGPRS-Handling" optional="True" tag="3"/>
+      <Member name="numberOfDPEncountered" type="NumberOfDPEncountered" optional="True" tag="4"/>
+      <Member name="levelOfCAMELService" type="LevelOfCAMELService" optional="True" tag="5"/>
+      <Member name="freeFormatData" type="FreeFormatData" optional="True" tag="6"/>
+      <Member name="fFDAppendIndicator" type="FFDAppendIndicator" optional="True" tag="7"/>
+    </Type>
+    <Type name="ChangeOfMBMSCondition" type="SEQUENCE">
+      <Member name="qosRequested" type="QoSInformation" optional="True" tag="1"/>
+      <Member name="qosNegotiated" type="QoSInformation" optional="True" tag="2"/>
+      <Member name="dataVolumeMBMSUplink" type="DataVolumeMBMS" optional="True" tag="3"/>
+      <Member name="dataVolumeMBMSDownlink" type="DataVolumeMBMS" tag="4"/>
+      <Member name="changeCondition" type="ChangeCondition" tag="5"/>
+      <Member name="changeTime" type="TimeStamp" tag="6"/>
+      <Member name="failureHandlingContinue" type="FailureHandlingContinue" optional="True" tag="7"/>
+    </Type>
+    <Type name="ChangeOfServiceCondition" type="SEQUENCE">
+      <Member name="ch_ratingGroup" type="RatingGroupId" tag="1"/>
+      <Member name="ch_chargingRuleBaseName" type="ChargingRuleBaseName" optional="True" tag="2"/>
+      <Member name="ch_resultCode" type="ResultCode" optional="True" tag="3"/>
+      <Member name="ch_localSequenceNumber" type="LocalSequenceNumber" optional="True" tag="4"/>
+      <Member name="ch_timeOfFirstUsage" type="TimeStamp" optional="True" tag="5"/>
+      <Member name="ch_timeOfLastUsage" type="TimeStamp" optional="True" tag="6"/>
+      <Member name="ch_timeUsage" type="CallDuration" optional="True" tag="7"/>
+      <Member name="ch_serviceConditionChange" type="ServiceConditionChange" tag="8"/>
+      <Member name="ch_qoSInformationNeg" type="EPCQoSInformation" optional="True" tag="9"/>
+      <Member name="ch_servingNodeAddress" type="GSNAddress" optional="True" tag="10"/>
+      <Member name="ch_datavolumeFBCUplink" type="DataVolumeGPRS" optional="True" tag="12"/>
+      <Member name="ch_datavolumeFBCDownlink" type="DataVolumeGPRS" optional="True" tag="13"/>
+      <Member name="ch_timeOfReport" type="TimeStamp" tag="14"/>
+      <Member name="ch_failureHandlingContinue" type="FailureHandlingContinue" optional="True" tag="16"/>
+      <Member name="ch_serviceIdentifier" type="ServiceIdentifier" optional="True" tag="17"/>
+      <Member name="ch_pSFurnishChargingInformation" type="PSFurnishChargingInformation" optional="True" tag="18"/>
+      <Member name="ch_aFRecordInformation" type="SEQUENCE OF" element="AFRecordInformation" optional="True" tag="19"/>
+      <Member name="ch_userLocationInformation" type="OCTET STRING" optional="True" tag="20"/>
+      <Member name="ch_eventBasedChargingInformation" type="EventBasedChargingInformation" optional="True" tag="21"/>
+      <Member name="ch_timeQuotaMechanism" type="TimeQuotaMechanism" optional="True" tag="22"/>
+      <Member name="ch_serviceSpecificInfo" type="SEQUENCE OF" element="ServiceSpecificInfo" optional="True" tag="23"/>
+      <Member name="ch_threeGPP2UserLocationInformation" type="OCTET STRING" optional="True" tag="24"/>
+      <Member name="ch_sponsorIdentity" type="OCTET STRING" optional="True" tag="25"/>
+      <Member name="ch_applicationServiceProviderIdentity" type="OCTET STRING" optional="True" tag="26"/>
+      <Member name="ch_aDCRuleBaseName" type="ADCRuleBaseName" optional="True" tag="27"/>
+      <Member name="ch_presenceReportingAreaStatus" type="PresenceReportingAreaStatus" optional="True" tag="28"/>
+      <Member name="ch_userCSGInformation" type="UserCSGInformation" optional="True" tag="29"/>
+      <Member name="ch_rATType" type="RATType" optional="True" tag="30"/>
+      <Member name="ch_uWANUserLocationInformation" type="UWANUserLocationInfo" optional="True" tag="32"/>
+      <Member name="ch_relatedChangeOfServiceCondition" type="RelatedChangeOfServiceCondition" optional="True" tag="33"/>
+      <Member name="ch_servingPLMNRateControl" type="ServingPLMNRateControl" optional="True" tag="35"/>
+      <Member name="ch_aPNRateControl" type="APNRateControl" optional="True" tag="36"/>
+      <Member name="ch_threeGPPPSDataOffStatus" type="ThreeGPPPSDataOffStatus" optional="True" tag="37"/>
+      <Member name="ch_trafficSteeringPolicyIDDownlink" type="TrafficSteeringPolicyIDDownlink" optional="True" tag="38"/>
+      <Member name="ch_trafficSteeringPolicyIDUplink" type="TrafficSteeringPolicyIDUplink" optional="True" tag="39"/>
+      <Member name="ch_tWANUserLocationInformation" type="TWANUserLocationInfo" optional="True" tag="40"/>
+      <Member name="ch_listOfPresenceReportingAreaInformation" type="SEQUENCE OF" element="PresenceReportingAreaInfo" optional="True" tag="41"/>
+    </Type>
+    <Type name="ChangeLocation" type="SEQUENCE">
+      <Member name="locationAreaCode" type="LocationAreaCode" tag="0"/>
+      <Member name="routingAreaCode" type="RoutingAreaCode" tag="1"/>
+      <Member name="cellId" type="CellId" optional="True" tag="2"/>
+      <Member name="changeTime" type="TimeStamp" tag="3"/>
+      <Member name="mCC-MNC" type="PLMN-Id" optional="True" tag="4"/>
+    </Type>
+    <Type name="ChargingPerIPCANSessionIndicator" type="ENUMERATED">
+      <entry name="inactive" value="0"/>
+      <entry name="active" value="1"/>
+    </Type>
+    <Type name="ChargingRuleBaseName" type="IA5String"/>
+    <Type name="CNOperatorSelectionEntity" type="ENUMERATED">
+      <entry name="servCNSelectedbyUE" value="0"/>
+      <entry name="servCNSelectedbyNtw" value="1"/>
+    </Type>
+    <Type name="CPCIoTEPSOptimisationIndicator" type="BOOLEAN"/>
+    <Type name="CSGAccessMode" type="ENUMERATED">
+      <entry name="closedMode" value="0"/>
+      <entry name="hybridMode" value="1"/>
+    </Type>
+    <Type name="CSGId" type="OCTET STRING"/>
+    <Type name="CTEID" type="OCTET STRING"/>
+    <Type name="DataVolumeMBMS" type="INTEGER"/>
+    <Type name="EPCQoSInformation" type="SEQUENCE">
+      <Member name="qCI" type="INTEGER" tag="1"/>
+      <Member name="maxRequestedBandwithUL" type="INTEGER" optional="True" tag="2"/>
+      <Member name="maxRequestedBandwithDL" type="INTEGER" optional="True" tag="3"/>
+      <Member name="guaranteedBitrateUL" type="INTEGER" optional="True" tag="4"/>
+      <Member name="guaranteedBitrateDL" type="INTEGER" optional="True" tag="5"/>
+      <Member name="aRP" type="INTEGER" optional="True" tag="6"/>
+      <Member name="aPNAggregateMaxBitrateUL" type="INTEGER" optional="True" tag="7"/>
+      <Member name="aPNAggregateMaxBitrateDL" type="INTEGER" optional="True" tag="8"/>
+      <Member name="extendedMaxRequestedBWUL" type="INTEGER" optional="True" tag="9"/>
+      <Member name="extendedMaxRequestedBWDL" type="INTEGER" optional="True" tag="10"/>
+      <Member name="extendedGBRUL" type="INTEGER" optional="True" tag="11"/>
+      <Member name="extendedGBRDL" type="INTEGER" optional="True" tag="12"/>
+      <Member name="extendedAPNAMBRUL" type="INTEGER" optional="True" tag="13"/>
+      <Member name="extendedAPNAMBRDL" type="INTEGER" optional="True" tag="14"/>
+    </Type>
+    <Type name="EventBasedChargingInformation" type="SEQUENCE">
+      <Member name="numberOfEvents" type="INTEGER" tag="1"/>
+      <Member name="eventTimeStamps" type="SEQUENCE OF" element="TimeStamp" optional="True" tag="2"/>
+    </Type>
+    <Type name="FailureHandlingContinue" type="BOOLEAN"/>
+    <Type name="FixedSubsID" type="OCTET STRING"/>
+    <Type name="FixedUserLocationInformation" type="SEQUENCE">
+      <Member name="sSID" type="OCTET STRING" optional="True" tag="0"/>
+      <Member name="bSSID" type="OCTET STRING" optional="True" tag="1"/>
+      <Member name="accessLineIdentifier" type="AccessLineIdentifier" optional="True" tag="2"/>
+    </Type>
+    <Type name="Flows" type="SEQUENCE">
+      <Member name="mediaComponentNumber" type="INTEGER" tag="1"/>
+      <Member name="flowNumber" type="SEQUENCE OF" element="INTEGER" optional="True" tag="2"/>
+    </Type>
+    <Type name="MOExceptionDataCounter" type="SEQUENCE">
+      <Member name="counterValue" type="INTEGER" tag="0"/>
+      <Member name="counterTimestamp" type="TimeStamp" tag="1"/>
+    </Type>
+    <Type name="NBIFOMMode" type="ENUMERATED">
+      <entry name="uEINITIATED" value="0"/>
+      <entry name="nETWORKINITIATED" value="1"/>
+    </Type>
+    <Type name="NBIFOMSupport" type="ENUMERATED">
+      <entry name="nBIFOMNotSupported" value="0"/>
+      <entry name="nBIFOMSupported" value="1"/>
+    </Type>
+    <Type name="PDPPDNTypeExtension" type="INTEGER"/>
+    <Type name="PresenceReportingAreaElementsList" type="OCTET STRING"/>
+    <Type name="PresenceReportingAreaInfo" type="SEQUENCE">
+      <Member name="presenceReportingAreaIdentifier" type="OCTET STRING" tag="0"/>
+      <Member name="presenceReportingAreaStatus" type="PresenceReportingAreaStatus" optional="True" tag="1"/>
+      <Member name="presenceReportingAreaElementsList" type="PresenceReportingAreaElementsList" optional="True" tag="2"/>
+      <Member name="presenceReportingAreaNode" type="PresenceReportingAreaNode" optional="True" tag="3"/>
+    </Type>
+    <Type name="PresenceReportingAreaNode" type="BIT STRING"/>
+    <Type name="PresenceReportingAreaStatus" type="ENUMERATED">
+      <entry name="insideArea" value="0"/>
+      <entry name="outsideArea" value="1"/>
+      <entry name="inactive" value="2"/>
+      <entry name="unknown" value="3"/>
+    </Type>
+    <Type name="PSFurnishChargingInformation" type="SEQUENCE">
+      <Member name="pSFreeFormatData" type="FreeFormatData" tag="1"/>
+      <Member name="pSFFDAppendIndicator" type="FFDAppendIndicator" optional="True" tag="2"/>
+    </Type>
+    <Type name="RANSecondaryRATUsageReport" type="SEQUENCE">
+      <Member name="dataVolumeUplink" type="DataVolumeGPRS" tag="1"/>
+      <Member name="dataVolumeDownlink" type="DataVolumeGPRS" tag="2"/>
+      <Member name="rANStartTime" type="TimeStamp" tag="3"/>
+      <Member name="rANEndTime" type="TimeStamp" tag="4"/>
+      <Member name="secondaryRATType" type="SecondaryRATType" optional="True" tag="5"/>
+      <Member name="chargingID" type="ChargingID" optional="True" tag="6"/>
+    </Type>
+    <Type name="RateControlTimeUnit" type="INTEGER">
+      <NamedNumber name="unrestricted" value="0"/>
+      <NamedNumber name="minute" value="1"/>
+      <NamedNumber name="hour" value="2"/>
+      <NamedNumber name="day" value="3"/>
+      <NamedNumber name="week" value="4"/>
+    </Type>
+    <Type name="RatingGroupId" type="INTEGER"/>
+    <Type name="RelatedChangeOfCharCondition" type="SEQUENCE">
+      <Member name="changeCondition" type="ChangeCondition" tag="5"/>
+      <Member name="changeTime" type="TimeStamp" tag="6"/>
+      <Member name="userLocationInformation" type="OCTET STRING" optional="True" tag="8"/>
+      <Member name="presenceReportingAreaStatus" type="PresenceReportingAreaStatus" optional="True" tag="11"/>
+      <Member name="userCSGInformation" type="UserCSGInformation" optional="True" tag="12"/>
+      <Member name="rATType" type="RATType" optional="True" tag="15"/>
+      <Member name="uWANUserLocationInformation" type="UWANUserLocationInfo" optional="True" tag="17"/>
+    </Type>
+    <Type name="RelatedChangeOfServiceCondition" type="SEQUENCE">
+      <Member name="userLocationInformation" type="OCTET STRING" optional="True" tag="20"/>
+      <Member name="threeGPP2UserLocationInformation" type="OCTET STRING" optional="True" tag="24"/>
+      <Member name="presenceReportingAreaStatus" type="PresenceReportingAreaStatus" optional="True" tag="28"/>
+      <Member name="userCSGInformation" type="UserCSGInformation" optional="True" tag="29"/>
+      <Member name="rATType" type="RATType" optional="True" tag="30"/>
+      <Member name="uWANUserLocationInformation" type="UWANUserLocationInfo" optional="True" tag="32"/>
+      <Member name="relatedServiceConditionChange" type="ServiceConditionChange" optional="True" tag="33"/>
+    </Type>
+    <Type name="ResultCode" type="INTEGER"/>
+    <Type name="SecondaryRATType" type="INTEGER">
+      <NamedNumber name="nR" value="0"/>
+    </Type>
+    <Type name="ServiceConditionChange" type="BIT STRING"/>
+    <Type name="ServiceIdentifier" type="INTEGER"/>
+    <Type name="ServingNodeType" type="ENUMERATED">
+      <entry name="sGSN" value="0"/>
+      <entry name="pMIPSGW" value="1"/>
+      <entry name="gTPSGW" value="2"/>
+      <entry name="ePDG" value="3"/>
+      <entry name="hSGW" value="4"/>
+      <entry name="mME" value="5"/>
+      <entry name="tWAN" value="6"/>
+    </Type>
+    <Type name="ServingPLMNRateControl" type="SEQUENCE">
+      <Member name="sPLMNDLRateControlValue" type="INTEGER" tag="0"/>
+      <Member name="sPLMNULRateControlValue" type="INTEGER" tag="1"/>
+    </Type>
+    <Type name="SGiPtPTunnellingMethod" type="ENUMERATED">
+      <entry name="uDPIPbased" value="0"/>
+      <entry name="others" value="1"/>
+    </Type>
+    <Type name="SGWChange" type="BOOLEAN"/>
+    <Type name="TimeQuotaMechanism" type="SEQUENCE">
+      <Member name="timeQuotaType" type="TimeQuotaType" tag="1"/>
+      <Member name="baseTimeInterval" type="INTEGER" tag="2"/>
+    </Type>
+    <Type name="TimeQuotaType" type="ENUMERATED">
+      <entry name="dISCRETETIMEPERIOD" value="0"/>
+      <entry name="cONTINUOUSTIMEPERIOD" value="1"/>
+    </Type>
+    <Type name="TrafficSteeringPolicyIDDownlink" type="OCTET STRING"/>
+    <Type name="TrafficSteeringPolicyIDUplink" type="OCTET STRING"/>
+    <Type name="TWANUserLocationInfo" type="SEQUENCE">
+      <Member name="sSID" type="OCTET STRING" tag="0"/>
+      <Member name="bSSID" type="OCTET STRING" optional="True" tag="1"/>
+      <Member name="civicAddressInformation" type="CivicAddressInformation" optional="True" tag="2"/>
+      <Member name="wLANOperatorId" type="WLANOperatorId" optional="True" tag="3"/>
+      <Member name="logicalAccessID" type="OCTET STRING" optional="True" tag="4"/>
+    </Type>
+    <Type name="UNIPDUCPOnlyFlag" type="BOOLEAN"/>
+    <Type name="UserCSGInformation" type="SEQUENCE">
+      <Member name="cSGId" type="CSGId" tag="0"/>
+      <Member name="cSGAccessMode" type="CSGAccessMode" tag="1"/>
+      <Member name="cSGMembershipIndication" type="NULL" optional="True" tag="2"/>
+    </Type>
+    <Type name="UWANUserLocationInfo" type="SEQUENCE">
+      <Member name="uELocalIPAddress" type="IPAddress" tag="0"/>
+      <Member name="uDPSourcePort" type="OCTET STRING" optional="True" tag="1"/>
+      <Member name="sSID" type="OCTET STRING" optional="True" tag="2"/>
+      <Member name="bSSID" type="OCTET STRING" optional="True" tag="3"/>
+      <Member name="tCPSourcePort" type="OCTET STRING" optional="True" tag="4"/>
+      <Member name="civicAddressInformation" type="CivicAddressInformation" optional="True" tag="5"/>
+      <Member name="wLANOperatorId" type="WLANOperatorId" optional="True" tag="6"/>
+      <Member name="logicalAccessID" type="OCTET STRING" optional="True" tag="7"/>
+    </Type>
+    <Type name="WLANOperatorId" type="SEQUENCE">
+      <Member name="wLANOperatorName" type="OCTET STRING" tag="0"/>
+      <Member name="wLANPLMNId" type="PLMN-Id" tag="1"/>
+    </Type>
+  </Module>
+</Root>

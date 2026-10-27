@@ -1,0 +1,15 @@
+# Orchestrator + recon image for Cloud Run jobs (NOT the Dataflow Flex Template image: that is ./Dockerfile).
+# No Apache Beam here: in flex mode this program only calls the Dataflow API.
+FROM python:3.12-slim
+
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY run_prism_batch.py file_tracker.py config.py prism_settings.py config_store.py config_admin.py \
+     recon_logic.py recon_runner.py ./
+
+ENV PYTHONUNBUFFERED=1
+# The job passes the program and its argument:  --args=run_prism_batch.py,PGW   or   --args=recon_runner.py,run
+ENTRYPOINT ["python"]
+CMD ["run_prism_batch.py"]
